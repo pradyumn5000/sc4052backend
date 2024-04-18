@@ -23,7 +23,7 @@ app = FastAPI()
 origins = [
     "http://localhost",
     "http://localhost:3000",
-    "https://textranksc4052.azurewebsites.net/",
+    "https://textranksc4052.azurewebsites.net",
 ]
 app.add_middleware(
     CORSMiddleware,
@@ -31,6 +31,7 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
+    allow_origin_regex=r"https:\/\/textranksc4052\.azurewebsites\.net$",
 )
 
 def crawl(current_url):
